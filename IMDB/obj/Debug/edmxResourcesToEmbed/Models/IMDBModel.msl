@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IMDBModelStoreContainer" CdmEntityContainer="IMDBEntities">
+    <EntitySetMapping Name="Actors">
+      <EntityTypeMapping TypeName="IMDBModel.Actor">
+        <MappingFragment StoreEntitySet="Actors">
+          <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+          <ScalarProperty Name="ActorName" ColumnName="ActorName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="BioData" ColumnName="BioData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Movies1">
+      <EntityTypeMapping TypeName="IMDBModel.Movie">
+        <MappingFragment StoreEntitySet="Movies">
+          <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+          <ScalarProperty Name="MovieName" ColumnName="MovieName" />
+          <ScalarProperty Name="DateOfRelease" ColumnName="DateOfRelease" />
+          <ScalarProperty Name="Plot" ColumnName="Plot" />
+          <ScalarProperty Name="Poster" ColumnName="Poster" />
+          <ScalarProperty Name="ProducerId" ColumnName="ProducerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producers">
+      <EntityTypeMapping TypeName="IMDBModel.Producer">
+        <MappingFragment StoreEntitySet="Producers">
+          <ScalarProperty Name="ProducerId" ColumnName="ProducerId" />
+          <ScalarProperty Name="ProducerName" ColumnName="ProducerName" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="BioData" ColumnName="BioData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MovieActor" TypeName="IMDBModel.MovieActor" StoreEntitySet="MovieActor">
+      <EndProperty Name="Actors">
+        <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+      </EndProperty>
+      <EndProperty Name="Movies">
+        <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
