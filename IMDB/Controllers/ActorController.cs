@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using IMDB.Models;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using IMDB.Models;
 
 namespace IMDB.Controllers
 {
@@ -17,13 +13,13 @@ namespace IMDB.Controllers
     {
         private IMDBEntities db = new IMDBEntities();
 
-        // GET: api/Actor
+ 
         public IQueryable<Actor> GetActors()
         {
             return db.Actors;
         }
 
-        // GET: api/Actor/5
+ 
         [ResponseType(typeof(Actor))]
         public async Task<IHttpActionResult> GetActor(int id)
         {
@@ -36,7 +32,7 @@ namespace IMDB.Controllers
             return Ok(actor);
         }
 
-        // PUT: api/Actor/5
+ 
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutActor(int id, Actor actor)
         {
@@ -71,7 +67,7 @@ namespace IMDB.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Actor
+        
         [ResponseType(typeof(Actor))]
         public async Task<IHttpActionResult> PostActor(Actor actor)
         {
@@ -86,7 +82,7 @@ namespace IMDB.Controllers
             return CreatedAtRoute("DefaultApi", new { id = actor.ActorName }, actor);
         }
 
-        // DELETE: api/Actor/5
+        
         [ResponseType(typeof(Actor))]
         public async Task<IHttpActionResult> DeleteActor(int id)
         {
@@ -102,6 +98,7 @@ namespace IMDB.Controllers
             return Ok(actor);
         }
 
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -110,6 +107,7 @@ namespace IMDB.Controllers
             }
             base.Dispose(disposing);
         }
+
 
         private bool ActorExists(int id)
         {

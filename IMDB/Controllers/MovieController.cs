@@ -14,13 +14,13 @@ namespace IMDB.Controllers
     {
         private IMDBEntities db = new IMDBEntities();
 
-        // GET: api/Movie
+
         public IQueryable<Movie> GetMovies1()
         {
             return db.Movies1;
         }
 
-        // GET: api/Movie/5
+
         [ResponseType(typeof(Movie))]
         public async Task<IHttpActionResult> GetMovie(int id)
         {
@@ -33,7 +33,7 @@ namespace IMDB.Controllers
             return Ok(movie);
         }
 
-        // PUT: api/Movie/5
+
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutMovie(int id, Movie movie)
         {
@@ -69,7 +69,7 @@ namespace IMDB.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Movie
+
         [ResponseType(typeof(Movie))]
         public async Task<IHttpActionResult> PostMovie(Movie movie)
         {
@@ -84,7 +84,7 @@ namespace IMDB.Controllers
             return CreatedAtRoute("DefaultApi", new { id = movie.MovieName }, movie);
         }
 
-        // DELETE: api/Movie/5
+
         [ResponseType(typeof(Movie))]
         public async Task<IHttpActionResult> DeleteMovie(int id)
         {
@@ -100,6 +100,7 @@ namespace IMDB.Controllers
             return Ok(movie);
         }
 
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -109,10 +110,12 @@ namespace IMDB.Controllers
             base.Dispose(disposing);
         }
 
+
         private bool MovieExists(int id)
         {
             return db.Movies1.Count(e => e.MovieId == id) > 0;
         }
+
 
         private void CreateMovieActorRelation(Movie movie)
         {
